@@ -38,6 +38,7 @@ public partial class Customers_CustEdit : System.Web.UI.Page
                 break;
             }
         }
+        myConn.Close();
         Session["CustomerDTO"] = customer;
         Server.Transfer("CustEdit2.aspx");
     }

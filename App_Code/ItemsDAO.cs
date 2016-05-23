@@ -47,7 +47,7 @@ public class ItemsDAO
 		updateComm.Parameters.AddWithValue("@itemID", item.itemID);
 		updateComm.Parameters.AddWithValue("@customerID", item.custID);
 		updateComm.Parameters.AddWithValue("@barcode", item.barcode);
-		updateComm.Parameters.AddWithValue("@item", item.itemType);
+		updateComm.Parameters.AddWithValue("@itemType", item.itemType);
 		updateComm.Parameters.AddWithValue("@description", item.description);
 		updateComm.Parameters.AddWithValue("@model", item.model);
 		updateComm.Parameters.AddWithValue("@issue", item.issue);
@@ -61,17 +61,10 @@ public class ItemsDAO
 	{
 		SqlConnection myConn = new SqlConnection(connString);
 		myConn.Open();
-		string updateString = "UPDATE Items SET customerID = @customerID, barcode = @barcode, itemType = @itemType, description = @description, model = @model, issue = @issue, dateBookedIn = @dateBookedIn dateBookedOut = @dateBookedOut WHERE itemID = @itemID";
+		string updateString = "UPDATE Items SET dateBookedOut = @dateBookedOut WHERE itemID = @itemID";
 		SqlCommand updateComm = new SqlCommand(updateString, myConn);
-        updateComm.Parameters.AddWithValue("@itemID", item.itemID);
-        updateComm.Parameters.AddWithValue("@customerID", item.custID);
-        updateComm.Parameters.AddWithValue("@barcode", item.barcode);
-        updateComm.Parameters.AddWithValue("@item", item.itemType);
-        updateComm.Parameters.AddWithValue("@description", item.description);
-        updateComm.Parameters.AddWithValue("@model", item.model);
-        updateComm.Parameters.AddWithValue("@issue", item.issue);
-        updateComm.Parameters.AddWithValue("@dateBookedIn", item.dateIn);
-		updateComm.Parameters.AddWithValue("@dateBookedOut", item.dateOut);
+		updateComm.Parameters.AddWithValue("@itemID", item.itemID);
+		updateComm.Parameters.Add("@dateBookedOut", SqlDbType.VarChar).Value = item.dateOut;
 		int rows = updateComm.ExecuteNonQuery();
 		myConn.Close();
 		if (rows != 1) throw new Exception("Unexpected Result for Update");

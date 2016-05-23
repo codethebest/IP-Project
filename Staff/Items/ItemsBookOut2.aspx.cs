@@ -19,13 +19,6 @@ public partial class Staff_Items_ItemsBookOut2 : System.Web.UI.Page
     protected void btnBookOut_Click(object sender, EventArgs e)
     {
         item.itemID = lblItemID.Text;
-        item.custID = lblCustID.Text;
-        item.barcode = lblBarcode.Text;
-        item.itemType = lblItemType.Text;
-        item.description = lblDescription.Text;
-        item.model = lblModel.Text;
-        item.issue = lblIssue.Text;
-        item.dateIn = lblDateIn.Text;
         item.dateOut = calBookOut.SelectedDate.ToShortDateString();
         ItemsDAO dao = new ItemsDAO();
         dao.bookOutItem(item);
@@ -35,7 +28,7 @@ public partial class Staff_Items_ItemsBookOut2 : System.Web.UI.Page
 
     private void getSessionData()
     {
-        ItemsDTO dto = (ItemsDTO)Session["ItemsDTO"];
+        ItemsDTO dto = (ItemsDTO)Session["ItemDTO"];
         ModelFacade facade = new ModelFacade();
         Items item = facade.createItem(dto);
         lblItemID.Text = item.itemID;
@@ -46,6 +39,5 @@ public partial class Staff_Items_ItemsBookOut2 : System.Web.UI.Page
         lblModel.Text = item.model;
         lblIssue.Text = item.issue;
         lblDateIn.Text = item.dateIn;
-        Session.Abandon();
     }
 }

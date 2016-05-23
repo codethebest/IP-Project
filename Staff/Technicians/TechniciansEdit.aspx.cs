@@ -34,6 +34,7 @@ public partial class Technicians_TechniciansEdit : System.Web.UI.Page
                 break;
             }
         }
+        myConn.Close();
         Session["TechnicianDTO"] = dto;
         Server.Transfer("TechniciansEdit2.aspx");
     }

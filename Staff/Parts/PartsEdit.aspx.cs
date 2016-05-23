@@ -39,6 +39,7 @@ public partial class Parts_PartsEdit : System.Web.UI.Page
                 break;
             }
         }
+        myConn.Close();
         Session["PartsDTO"] = dto;
         Server.Transfer("PartsEdit2.aspx");
     }

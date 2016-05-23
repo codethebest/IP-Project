@@ -37,22 +37,26 @@
                 <td class="style2">
                     Item ID:</td>
                 <td class="style3">
-                    &nbsp;</td>
+                    <asp:Label ID="lblOldID" runat="server"></asp:Label>
+                </td>
                 <td class="style4">
-                    &nbsp;</td>
+                    New Item ID:</td>
                 <td>
-                    <asp:TextBox ID="txtItemID" runat="server" ReadOnly="True"></asp:TextBox>
+                    <asp:Label ID="lblNewID" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
                     Customer ID:</td>
                 <td class="style3">
-                    &nbsp;</td>
+                    <asp:Label ID="lblOldCust" runat="server"></asp:Label>
+                </td>
                 <td class="style4">
-                    &nbsp;</td>
+                    New Customer ID:</td>
                 <td>
-                    <asp:DropDownList ID="dropDownCustID" runat="server">
+                    <asp:DropDownList ID="dropDownCustID" runat="server" 
+                        DataSourceID="SqlDataSource1" DataTextField="customerID" 
+                        DataValueField="customerID">
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -60,9 +64,10 @@
                 <td class="style2">
                     Barcode:</td>
                 <td class="style3">
-                    &nbsp;</td>
+                    <asp:Label ID="lblOldBarcode" runat="server"></asp:Label>
+                </td>
                 <td class="style4">
-                    &nbsp;</td>
+                    New Barcode:</td>
                 <td>
                     <asp:TextBox ID="txtBarcode" runat="server" ReadOnly="True"></asp:TextBox>
                 </td>
@@ -71,9 +76,10 @@
                 <td class="style2">
                     item Type:</td>
                 <td class="style3">
-                    &nbsp;</td>
+                    <asp:Label ID="lblOldType" runat="server"></asp:Label>
+                </td>
                 <td class="style4">
-                    &nbsp;</td>
+                    New Item: type:</td>
                 <td>
                     <asp:DropDownList ID="dropDrownType" runat="server">
                         <asp:ListItem>Laptop</asp:ListItem>
@@ -86,9 +92,10 @@
                 <td class="style2">
                     Description:</td>
                 <td class="style3">
-                    &nbsp;</td>
+                    <asp:Label ID="lblOldDescription" runat="server"></asp:Label>
+                </td>
                 <td class="style4">
-                    &nbsp;</td>
+                    New Item Description:</td>
                 <td>
                     <asp:TextBox ID="txtDescription" runat="server" Height="89px" 
                         TextMode="MultiLine" Width="303px"></asp:TextBox>
@@ -98,9 +105,10 @@
                 <td class="style2">
                     Model:</td>
                 <td class="style3">
-                    &nbsp;</td>
+                    <asp:Label ID="lblOldModel" runat="server"></asp:Label>
+                </td>
                 <td class="style4">
-                    &nbsp;</td>
+                    New Item Model:</td>
                 <td>
                     <asp:TextBox ID="txtModel" runat="server"></asp:TextBox>
                 </td>
@@ -109,9 +117,10 @@
                 <td class="style2">
                     Issue with Item</td>
                 <td class="style3">
-                    &nbsp;</td>
+                    <asp:Label ID="lblOldIssue" runat="server"></asp:Label>
+                </td>
                 <td class="style4">
-                    &nbsp;</td>
+                    New Item Issue:</td>
                 <td>
                     <asp:TextBox ID="txtIssue" runat="server" Height="90px" TextMode="MultiLine" 
                         Width="303px"></asp:TextBox>
@@ -121,22 +130,28 @@
                 <td class="style2">
                     Date Booked in:</td>
                 <td class="style3">
-                    &nbsp;</td>
+                    <asp:Label ID="lblOldDate" runat="server"></asp:Label>
+                </td>
                 <td class="style4">
-                    &nbsp;</td>
+                    New Date Booked In:</td>
                 <td>
-                    <asp:Calendar ID="calDateIn" runat="server"></asp:Calendar>
+                    <asp:Calendar ID="calDateIn" runat="server" 
+                        onselectionchanged="calDateIn_SelectionChanged" style="margin-left: 0px"></asp:Calendar>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
-                    &nbsp;</td>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                        SelectCommand="SELECT [customerID] FROM [Customers]"></asp:SqlDataSource>
+                </td>
                 <td class="style3">
                     &nbsp;</td>
                 <td class="style4">
                     &nbsp;</td>
                 <td>
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" 
+                        onclick="btnSubmit_Click" />
                 </td>
             </tr>
         </table>
