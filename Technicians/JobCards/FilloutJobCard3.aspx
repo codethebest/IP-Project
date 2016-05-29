@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ItemsBookIn2.aspx.cs" Inherits="Staff_Items_ItemsBookIn2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FilloutJobCard3.aspx.cs" Inherits="Technicians_JobCards_FilloutJobCard3" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,7 +12,7 @@
         }
         .style2
         {
-            width: 445px;
+            width: 513px;
         }
     </style>
 </head>
@@ -23,7 +23,14 @@
         <table class="style1">
             <tr>
                 <td colspan="2">
-                    Item Details</td>
+                    Fill out job card</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    Job ID:</td>
+                <td>
+                    <asp:Label ID="lblJobID" runat="server"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td class="style2">
@@ -34,59 +41,51 @@
             </tr>
             <tr>
                 <td class="style2">
-                    Customer ID:</td>
+                    Technician ID:</td>
                 <td>
-                    <asp:Label ID="lblCustID" runat="server"></asp:Label>
+                    <asp:Label ID="lblTechID" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
-                    Barcode:</td>
+                    Date Assigned:</td>
                 <td>
-                    <asp:Label ID="lblBarcode" runat="server"></asp:Label>
+                    <asp:Label ID="lblDateAssigned" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
-                    Item Type:</td>
+                    Part ID:</td>
                 <td>
-                    <asp:Label ID="lblType" runat="server"></asp:Label>
+                    <asp:Label ID="lblPartID" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
-                    Description:</td>
+                    Hours Worked:</td>
                 <td>
-                    <asp:Label ID="lblDescription" runat="server"></asp:Label>
+                    <asp:Label ID="lblHoursWorked" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
-                    Model:</td>
+                    Date Completed:</td>
                 <td>
-                    <asp:Label ID="lblModel" runat="server"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td class="style2">
-                    Issue:</td>
-                <td>
-                    <asp:Label ID="lblIssue" runat="server"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td class="style2">
-                    Date Booked In:</td>
-                <td>
-                    <asp:Label ID="lblDateIn" runat="server"></asp:Label>
+                    <asp:Label ID="lblDateCompleted" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
                     &nbsp;</td>
                 <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    &nbsp;</td>
+                <td>
                     <asp:Button ID="btnSubmit" runat="server" onclick="btnSubmit_Click" 
-                        Text="Submit" />
+                        Text="Submit Data" />
                 </td>
             </tr>
         </table>

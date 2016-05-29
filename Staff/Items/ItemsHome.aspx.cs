@@ -25,5 +25,9 @@ public partial class Staff_Items_ItemsHome : System.Web.UI.Page
         {
             Response.Redirect("ItemsBookOut.aspx");
         }
+        else
+        {
+            Response.Write("Please select a choice");
+        }
     }
 }

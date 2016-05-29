@@ -37,6 +37,8 @@
                     Name:</td>
                 <td>
                     <asp:TextBox ID="txtTechName" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="txtTechName" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>

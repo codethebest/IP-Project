@@ -30,7 +30,7 @@ public partial class Staff_Items_ItemsBookIn : System.Web.UI.Page
         String issue = txtIssue.Text;
         item.itemID = id;
         item.custID = custID;
-        item.barcode = dropDownCustID.SelectedValue + " " + itemID.ToString();
+        item.barcode = barcode;
         item.itemType = type;
         item.description = description;
         item.model = model;
@@ -47,16 +47,29 @@ public partial class Staff_Items_ItemsBookIn : System.Web.UI.Page
 
     private void setItemID()
     {
-        SqlConnection conn = new SqlConnection(connString);
-        conn.Open();
-        SqlCommand select = new SqlCommand("Select * from Items", conn);
-        SqlDataReader reader = select.ExecuteReader();
-        while (reader.Read())
+        try
         {
-            totalRecords++;
+            SqlConnection conn = new SqlConnection(connString);
+            conn.Open();
+            SqlCommand select = new SqlCommand("Select * from Items", conn);
+            SqlDataReader reader = select.ExecuteReader();
+            while (reader.Read())
+            {
+                totalRecords++;
+            }
+            conn.Close();
+            itemID += totalRecords;
+            txtItemID.Text = itemID.ToString();
         }
-        conn.Close();
-        itemID += totalRecords;
-        txtItemID.Text = itemID.ToString();
+        catch (SqlException ex)
+        {
+            Console.Write("Error: " + ex.ToString());
+        }
+        
+    }
+    protected void dropDownCustID_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        String barcode = dropDownCustID.SelectedValue + " " + itemID.ToString();
+        txtBarcode.Text = barcode;
     }
 }

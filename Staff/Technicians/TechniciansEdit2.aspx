@@ -61,6 +61,8 @@
                     New Name</td>
                 <td>
                     <asp:TextBox ID="txtNewName" runat="server" Width="146px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="txtNewName" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>

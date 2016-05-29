@@ -17,31 +17,39 @@ public partial class Staff_Items_ItemsBookOut : System.Web.UI.Page
     }
     protected void btnNext_Click(object sender, EventArgs e)
     {
-        ItemsDTO dto = new ItemsDTO();
-        conn = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
-        SqlConnection myConn = new SqlConnection(conn);
-        myConn.Open();
-        string selectStatement = "Select itemID, customerID, barcode, itemType, description, model, issue, dateBookedIn from Items where (itemID="; selectStatement += dropDownItemID.SelectedValue + ")";
-        SqlCommand selectCmd = new SqlCommand(selectStatement, myConn);
-        SqlDataReader myReader;
-        myReader = selectCmd.ExecuteReader();
-        while (myReader.Read())
+        try
         {
-            if (myReader.GetString(0) == dropDownItemID.SelectedValue)
+            ItemsDTO dto = new ItemsDTO();
+            conn = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
+            SqlConnection myConn = new SqlConnection(conn);
+            myConn.Open();
+            string selectStatement = "Select itemID, customerID, barcode, itemType, description, model, issue, dateBookedIn from Items where (itemID="; selectStatement += dropDownItemID.SelectedValue + ")";
+            SqlCommand selectCmd = new SqlCommand(selectStatement, myConn);
+            SqlDataReader myReader;
+            myReader = selectCmd.ExecuteReader();
+            while (myReader.Read())
             {
-                dto.itemID = myReader.GetString(0);
-                dto.custID = myReader.GetString(1);
-                dto.barcode = myReader.GetString(2);
-                dto.itemType = myReader.GetString(3);
-                dto.description = myReader.GetString(4);
-                dto.model = myReader.GetString(5);
-                dto.issue = myReader.GetString(6);
-                dto.dateIn = myReader.GetString(7);
-                break;
+                if (myReader.GetString(0) == dropDownItemID.SelectedValue)
+                {
+                    dto.itemID = myReader.GetString(0);
+                    dto.custID = myReader.GetString(1);
+                    dto.barcode = myReader.GetString(2);
+                    dto.itemType = myReader.GetString(3);
+                    dto.description = myReader.GetString(4);
+                    dto.model = myReader.GetString(5);
+                    dto.issue = myReader.GetString(6);
+                    dto.dateIn = myReader.GetString(7);
+                    break;
+                }
             }
+            myConn.Close();
+            Session["ItemDTO"] = dto;
+            Server.Transfer("ItemsBookOut2.aspx");
         }
-        myConn.Close();
-        Session["ItemDTO"] = dto;
-        Server.Transfer("ItemsBookOut2.aspx");
+        catch (SqlException ex)
+        {
+            Console.Write("Error: " + ex.ToString());
+        }
+        
     }
 }

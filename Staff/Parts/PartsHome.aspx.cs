@@ -25,5 +25,9 @@ public partial class Parts_PartsHome : System.Web.UI.Page
         {
             Response.Redirect("PartsDelete.aspx");
         }
+        else
+        {
+            Response.Write("Please select a choice");
+        }
     }
 }

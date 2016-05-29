@@ -47,4 +47,8 @@ public partial class Staff_Items_ItemsEdit2 : System.Web.UI.Page
     {
         item.dateIn = calDateIn.SelectedDate.ToShortDateString();
     }
+    protected void dropDownCustID_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        txtBarcode.Text = dropDownCustID.SelectedValue + " " + lblNewID.Text;
+    }
 }

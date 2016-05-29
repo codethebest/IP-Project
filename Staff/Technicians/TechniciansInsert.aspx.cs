@@ -43,11 +43,6 @@ public partial class Technicians_TechniciansInsert : System.Web.UI.Page
         SqlDataReader reader = select.ExecuteReader();
         while (reader.Read())
         {
-            if (reader.GetString(0) == techID.ToString())
-            {
-                techID += 1;
-            }
-            totalRecords++;
             totalRecords++;
         }
         conn.Close();

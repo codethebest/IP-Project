@@ -37,6 +37,8 @@
                     Part Name:</td>
                 <td>
                     <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ControlToValidate="txtName" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -54,6 +56,8 @@
                     Manufacturer:</td>
                 <td>
                     <asp:TextBox ID="txtManufacturer" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                        ControlToValidate="txtManufacturer" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -80,6 +84,8 @@
                     Price:</td>
                 <td>
                     <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                        ControlToValidate="txtPrice" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -87,6 +93,8 @@
                     Supplier:</td>
                 <td>
                     <asp:TextBox ID="txtSupplier" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                        ControlToValidate="txtSupplier" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>

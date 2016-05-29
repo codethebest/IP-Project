@@ -53,6 +53,8 @@
                     New Name</td>
                 <td>
                     <asp:TextBox ID="txtNewName" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="txtNewName" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -80,6 +82,8 @@
                     New Manufacturer</td>
                 <td>
                     <asp:TextBox ID="txtNewManu" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ControlToValidate="txtNewManu" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -105,6 +109,8 @@
                     New Price</td>
                 <td>
                     <asp:TextBox ID="txtNewPrice" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                        ControlToValidate="txtNewPrice" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -117,6 +123,8 @@
                     New Supplier</td>
                 <td>
                     <asp:TextBox ID="txtNewSupplier" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                        ControlToValidate="txtNewSupplier" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
