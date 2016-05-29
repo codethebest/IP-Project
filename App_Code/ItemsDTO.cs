@@ -15,6 +15,7 @@ public class ItemsDTO
     public String description { set; get; }
     public String model { set; get; }
     public String issue { set; get; }
+    public String assignedToTechnician { set; get; }
     public String dateIn { set; get; }
     public String dateOut { set; get; }
 }

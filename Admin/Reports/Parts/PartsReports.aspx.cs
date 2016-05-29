@@ -25,5 +25,9 @@ public partial class Admin_Reports_Parts_PartsReports : System.Web.UI.Page
         {
             Response.Redirect("PartsReportOutOfStock.aspx");
         }
+        else
+        {
+            Response.Write("Please select a choice");
+        }
     }
 }

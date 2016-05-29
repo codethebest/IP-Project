@@ -14,13 +14,13 @@ public partial class Admin_Customers_CustEdit2 : System.Web.UI.Page
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         Customer customer = new Customer();
-        customer.customerID = txtCustID.Text;
+        customer.customerID = lblNewID.Text;
         customer.customerName = txtNewName.Text;
         customer.customerSurname = txtNewSurname.Text;
         customer.customerAdress = txtNewAddress.Text;
         customer.cutomerPhoneNumber = txtNewPrimNumber.Text;
         customer.customerAltPhoneNuber = txtNewAltNumber.Text;
-        customer.totalItems = txtNewItems.Text;
+        customer.totalItems = dropDownItems.SelectedItem.Text;
         CustomerDAO dao = new CustomerDAO();
         dao.updateCustomer(customer);
         Session.Abandon();
@@ -33,7 +33,6 @@ public partial class Admin_Customers_CustEdit2 : System.Web.UI.Page
         txtNewAddress.Text = "";
         txtNewPrimNumber.Text = "";
         txtNewAltNumber.Text = "";
-        txtNewItems.Text = "";
     }
 
     private void getSessionData()
@@ -42,7 +41,7 @@ public partial class Admin_Customers_CustEdit2 : System.Web.UI.Page
         ModelFacade facade = new ModelFacade();
         Customer customer = facade.createCustomer(dto);
         lblID.Text = customer.customerID.ToString();
-        txtCustID.Text = lblID.Text;
+        lblNewID.Text = lblID.Text;
         lblName.Text = customer.customerName;
         lblSurname.Text = customer.customerSurname;
         lblAddress.Text = customer.customerAdress;

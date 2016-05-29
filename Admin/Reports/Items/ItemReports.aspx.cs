@@ -25,5 +25,9 @@ public partial class Admin_Reports_Items_ItemReports : System.Web.UI.Page
         {
             Response.Redirect("ItemReportByCustID.aspx");
         }
+        else
+        {
+            Response.Write("Please select a choice");
+        }
     }
 }

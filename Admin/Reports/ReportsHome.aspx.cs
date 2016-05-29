@@ -29,5 +29,17 @@ public partial class Admin_Reports_ReportsHome : System.Web.UI.Page
         {
             Response.Redirect("Items/ItemReports.aspx");
         }
+        else if (rbJobReports.Checked == true)
+        {
+            Response.Redirect("Jobs/JobReports.aspx");
+        }
+        else if (rbInvoice.Checked == true)
+        {
+            Response.Redirect("");
+        }
+        else
+        {
+            Response.Write("Please select a choice");
+        }
     }
 }

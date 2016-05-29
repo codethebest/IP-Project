@@ -25,5 +25,9 @@ public partial class Customers_CustHome : System.Web.UI.Page
         {
             Response.Redirect("CustDelete.aspx");
         }
+        else
+        {
+            Response.Write("Please select a choice");
+        }
     }
 }

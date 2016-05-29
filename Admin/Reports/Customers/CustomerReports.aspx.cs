@@ -21,5 +21,9 @@ public partial class Admin_Reports_CustomerReports : System.Web.UI.Page
         {
             Response.Redirect("CustomerReportsSearchCust.aspx");
         }
+        else
+        {
+            Response.Write("Please select a choice");
+        }
     }
 }

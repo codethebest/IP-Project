@@ -48,7 +48,7 @@
                 <td>
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
                         ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-                        SelectCommand="SELECT [customerID] FROM [Items]"></asp:SqlDataSource>
+                        SelectCommand="SELECT [customerID] FROM [Customers]"></asp:SqlDataSource>
                 </td>
             </tr>
             <tr>
@@ -63,7 +63,7 @@
                     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
                         AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" 
                         DataKeyNames="itemID" DataSourceID="SqlDataSource1" ForeColor="#333333" 
-                        GridLines="None" Width="970px">
+                        GridLines="None">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:BoundField DataField="itemID" HeaderText="itemID" ReadOnly="True" 

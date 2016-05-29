@@ -16,30 +16,38 @@ public partial class Customers_CustEdit : System.Web.UI.Page
     }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        CustomerFormDTO customer = new CustomerFormDTO();
-        conn = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
-        SqlConnection myConn = new SqlConnection(conn);
-        myConn.Open();
-        string selectStatement = "Select * from Customers where (customerID="; selectStatement += dropDownCustID.SelectedValue + ")";
-        SqlCommand selectCmd = new SqlCommand(selectStatement, myConn);
-        SqlDataReader myReader;
-        myReader = selectCmd.ExecuteReader();
-        while (myReader.Read())
+        try
         {
-            if (myReader.GetString(0) == dropDownCustID.SelectedValue)
+            CustomerFormDTO customer = new CustomerFormDTO();
+            conn = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
+            SqlConnection myConn = new SqlConnection(conn);
+            myConn.Open();
+            string selectStatement = "Select * from Customers where (customerID="; selectStatement += dropDownCustID.SelectedValue + ")";
+            SqlCommand selectCmd = new SqlCommand(selectStatement, myConn);
+            SqlDataReader myReader;
+            myReader = selectCmd.ExecuteReader();
+            while (myReader.Read())
             {
-                customer.id = myReader.GetString(0);
-                customer.name = myReader.GetString(1);
-                customer.surname = myReader.GetString(2);
-                customer.address = myReader.GetString(3);
-                customer.phoneNum = myReader.GetString(4);
-                customer.altPhoneNum = myReader.GetString(5);
-                customer.items = myReader.GetString(6);
-                break;
+                if (myReader.GetString(0) == dropDownCustID.SelectedValue)
+                {
+                    customer.id = myReader.GetString(0);
+                    customer.name = myReader.GetString(1);
+                    customer.surname = myReader.GetString(2);
+                    customer.address = myReader.GetString(3);
+                    customer.phoneNum = myReader.GetString(4);
+                    customer.altPhoneNum = myReader.GetString(5);
+                    customer.items = myReader.GetString(6);
+                    break;
+                }
             }
+            myConn.Close();
+            Session["CustomerDTO"] = customer;
+            Server.Transfer("CustEdit2.aspx");
         }
-        myConn.Close();
-        Session["CustomerDTO"] = customer;
-        Server.Transfer("CustEdit2.aspx");
+        catch (SqlException ex)
+        {
+            Console.Write("Error : " + ex.ToString());
+        }
+        
     }
 }

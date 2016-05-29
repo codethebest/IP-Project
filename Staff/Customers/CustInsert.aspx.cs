@@ -28,7 +28,7 @@ public partial class Customers_CustInsert : System.Web.UI.Page
         String custAddress = txtCustAddress.Text;
         String custPhoneNumber = txtCustPhoneNumber.Text;
         String custAltPhoneNumber = txtCustAltNumber.Text;
-        String totalItems = txtTotalItems.Text; 
+        String totalItems = dropDownTotalItems.SelectedItem.Text;
         CustomerFormDTO customer = new CustomerFormDTO();
         customer.id = custID.ToString();
         customer.name = custName ;
@@ -43,17 +43,24 @@ public partial class Customers_CustInsert : System.Web.UI.Page
 
     private void setCustID()
     {
-        SqlConnection conn = new SqlConnection(connString);
-        conn.Open();
-        SqlCommand select = new SqlCommand("Select * from Customers", conn);
-        SqlDataReader reader = select.ExecuteReader();
-        while (reader.Read())
+        try
         {
-            totalRecords++;
+            SqlConnection conn = new SqlConnection(connString);
+            conn.Open();
+            SqlCommand select = new SqlCommand("Select * from Customers", conn);
+            SqlDataReader reader = select.ExecuteReader();
+            while (reader.Read())
+            {
+                totalRecords++;
+            }
+            conn.Close();
+            custID += totalRecords;
+            txtCustID.Text = custID.ToString();
         }
-        conn.Close();
-        custID += totalRecords;
-        txtCustID.Text = custID.ToString();
+        catch (SqlException ex)
+        {
+            Response.Write("Error: " + ex.ToString());
+        }
     }
     private void clearText()
     {
@@ -62,6 +69,5 @@ public partial class Customers_CustInsert : System.Web.UI.Page
         txtCustAddress.Text = "";
         txtCustPhoneNumber.Text = "";
         txtCustAltNumber.Text = "";
-        txtTotalItems.Text = "";
     }
 }

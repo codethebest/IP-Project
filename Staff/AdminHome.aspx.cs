@@ -23,7 +23,7 @@ public partial class AdminHome : System.Web.UI.Page
         }
         else if (rbJobs.Checked == true)
         {
-            Response.Redirect("");
+            Response.Redirect("Jobs/JobsHome.aspx");
         }
         else if (rbParts.Checked == true)
         {
@@ -36,6 +36,10 @@ public partial class AdminHome : System.Web.UI.Page
         else if (rbItems.Checked == true)
         {
             Response.Redirect("Items/ItemsHome.aspx");
+        }
+        else
+        {
+            Response.Write("Please select a choice");
         }
     }
 }

@@ -37,6 +37,8 @@
                     Name:</td>
                 <td>
                     <asp:TextBox ID="txtCustName" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="txtCustName" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -44,6 +46,8 @@
                     Surname:</td>
                 <td>
                     <asp:TextBox ID="txtCustSurname" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ControlToValidate="txtCustSurname" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -52,6 +56,8 @@
                 <td>
                     <asp:TextBox ID="txtCustAddress" runat="server" Height="81px" 
                         TextMode="MultiLine" Width="256px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                        ControlToValidate="txtCustAddress" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -59,6 +65,9 @@
                     Primary Phone Number:</td>
                 <td>
                     <asp:TextBox ID="txtCustPhoneNumber" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                        ControlToValidate="txtCustPhoneNumber" ErrorMessage="* Required" 
+                        ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -66,13 +75,21 @@
                     Secondary Phone Number:</td>
                 <td>
                     <asp:TextBox ID="txtCustAltNumber" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                        ControlToValidate="txtCustAltNumber" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
                     Total Items:</td>
                 <td>
-                    <asp:TextBox ID="txtTotalItems" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="dropDownTotalItems" runat="server">
+                        <asp:ListItem>1</asp:ListItem>
+                        <asp:ListItem>2</asp:ListItem>
+                        <asp:ListItem Value="3"></asp:ListItem>
+                        <asp:ListItem>4</asp:ListItem>
+                        <asp:ListItem Value="5"></asp:ListItem>
+                    </asp:DropDownList>
                 </td>
             </tr>
             <tr>

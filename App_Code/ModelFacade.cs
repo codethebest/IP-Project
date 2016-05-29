@@ -59,4 +59,34 @@ public class ModelFacade
         return item;
     }
 
+    public Jobs createJob(JobsDTO dto)
+    {
+        Jobs job = new Jobs();
+        job.jobID = dto.jobID;
+        job.itemID = dto.itemID;
+        job.techID = dto.techID;
+        job.dateAssigned = dto.dateAssigned;
+        job.partID = dto.partID;
+        job.hoursWorked = dto.hoursWorked;
+        job.dateCompleted = dto.dateCompleted;
+        return job;
+    }
+
+    public Invoices createInvoice(InvoicesDTO dto)
+    {
+        Invoices invoice = new Invoices();
+        invoice.invoiceID = dto.invoiceID;
+        invoice.jobID = dto.jobID;
+        invoice.custID = dto.custID;
+        invoice.custName = dto.custName;
+        invoice.custSurname = dto.custSurname;
+        invoice.itemID = dto.invoiceID;
+        invoice.techID = dto.techID;
+        invoice.techName = dto.techName;
+        invoice.hoursWorked = dto.hoursWorked;
+        invoice.billAmount = dto.billAmount;
+        invoice.dateIssued = dto.dateIssued;
+        return invoice;
+    }
+
 }

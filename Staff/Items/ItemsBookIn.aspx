@@ -38,7 +38,8 @@
                 <td>
                     <asp:DropDownList ID="dropDownCustID" runat="server" 
                         DataSourceID="sqlCustIDSource" DataTextField="customerID" 
-                        DataValueField="customerID" >
+                        DataValueField="customerID" AutoPostBack="True" 
+                        onselectedindexchanged="dropDownCustID_SelectedIndexChanged" >
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -66,6 +67,8 @@
                 <td>
                     <asp:TextBox ID="txtDescription" runat="server" Height="90px" 
                         TextMode="MultiLine" Width="303px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="txtDescription" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -73,6 +76,8 @@
                     Model:</td>
                 <td>
                     <asp:TextBox ID="txtModel" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ControlToValidate="txtModel" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -81,6 +86,8 @@
                 <td>
                     <asp:TextBox ID="txtIssue" runat="server" Height="90px" TextMode="MultiLine" 
                         Width="303px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                        ControlToValidate="txtIssue" ErrorMessage="* Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>

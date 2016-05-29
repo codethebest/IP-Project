@@ -41,5 +41,9 @@ public partial class Admin_DefaultAdmin : System.Web.UI.Page
         {
             Response.Redirect("~/Admin/Reports/ReportsHome.aspx");
         }
+        else
+        {
+            Response.Write("Please select a choice");
+        }
     }
 }

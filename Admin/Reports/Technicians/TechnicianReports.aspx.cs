@@ -25,5 +25,9 @@ public partial class Admin_Reports_TechnicianReports : System.Web.UI.Page
         {
             Response.Redirect("TechnicianReportsByType.aspx");
         }
+        else
+        {
+            Response.Write("Please select a choice");
+        }
     }
 }

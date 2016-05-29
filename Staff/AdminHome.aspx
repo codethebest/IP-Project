@@ -68,11 +68,7 @@
                         Text="Choose Option" />
                 </td>
             </tr>
-            <tr>
-                <td>
-                    &nbsp;</td>
-            </tr>
-        </table>
+            </table>
 
     </div>
     </form>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="calcBillAmount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="hours" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="calcBillAmountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="calcBillAmountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="calcBillAmountSoapIn">
+    <wsdl:part name="parameters" element="tns:calcBillAmount" />
+  </wsdl:message>
+  <wsdl:message name="calcBillAmountSoapOut">
+    <wsdl:part name="parameters" element="tns:calcBillAmountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CalculateBillSoap">
+    <wsdl:operation name="calcBillAmount">
+      <wsdl:input message="tns:calcBillAmountSoapIn" />
+      <wsdl:output message="tns:calcBillAmountSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CalculateBillSoap" type="tns:CalculateBillSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="calcBillAmount">
+      <soap:operation soapAction="http://tempuri.org/calcBillAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CalculateBillSoap12" type="tns:CalculateBillSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="calcBillAmount">
+      <soap12:operation soapAction="http://tempuri.org/calcBillAmount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CalculateBill">
+    <wsdl:port name="CalculateBillSoap" binding="tns:CalculateBillSoap">
+      <soap:address location="http://localhost:3010/Booking%20System/CalculateBill.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CalculateBillSoap12" binding="tns:CalculateBillSoap12">
+      <soap12:address location="http://localhost:3010/Booking%20System/CalculateBill.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

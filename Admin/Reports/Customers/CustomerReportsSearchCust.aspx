@@ -32,6 +32,8 @@
                 Enter Customer ID to search for:</td>
             <td>
                 <asp:TextBox ID="txtCustID" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                    ControlToValidate="txtCustID" ErrorMessage="* Required" ForeColor="#FF3300"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
