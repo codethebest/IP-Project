@@ -28,14 +28,26 @@
             width: 360px;
         }
     </style>
+    <script language="javascript" type="text/javascript">
+        function callPrint(Strid) {
+            var prtContent = document.getElementById(Strid);
+            var winPrint = window.open(",", 'left=0, top =0,width =1,toolbar = 0, scrollbars =0,status =0');
+            winPrint.document.write(prtContent.innerHTML);
+            winPrint.focus();
+            winPrint.print();
+            winPrint.close();
+            prtContent.innerHTML = strOldOne;
+            //JavaScript Code credit to codeProject.com users
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-    
+    <div id = "bill">
         <table class="style1">
             <tr>
-                <td colspan="4">
+                <td colspan="5">
                     <h2>Computer Specialists PC Repairs</h2></td>
             </tr>
             <tr>
@@ -44,6 +56,8 @@
                 <td class="style3">
                     <asp:Label ID="lblDateIssued" runat="server"></asp:Label>
                 </td>
+                <td class="style3">
+                    &nbsp;</td>
                 <td>
                     Invoice ID</td>
                 <td>
@@ -51,12 +65,14 @@
                 </td>
             </tr>
             <tr>
-                <td class="style2" colspan="4">
+                <td class="style2" colspan="5">
                     &nbsp;</td>
             </tr>
             <tr>
                 <td class="style2" colspan="2">
                     Customer Details</td>
+                <td class="style2">
+                    &nbsp;</td>
                 <td colspan="2">
                     Technician Details</td>
             </tr>
@@ -66,6 +82,8 @@
                 <td class="style3">
                     <asp:Label ID="lblCustID" runat="server"></asp:Label>
                 </td>
+                <td class="style3">
+                    &nbsp;</td>
                 <td class="style5">
                     Technician ID: </td>
                 <td>
@@ -78,6 +96,8 @@
                 <td class="style3">
                     <asp:Label ID="lblCustName" runat="server"></asp:Label>
                 </td>
+                <td class="style3">
+                    &nbsp;</td>
                 <td class="style5">
                     Job ID:</td>
                 <td>
@@ -90,6 +110,8 @@
                 <td class="style3">
                     <asp:Label ID="lblItemID" runat="server"></asp:Label>
                 </td>
+                <td class="style3">
+                    &nbsp;</td>
                 <td class="style5">
                     Technician Name:&nbsp; </td>
                 <td>
@@ -101,6 +123,8 @@
                     &nbsp;</td>
                 <td class="style3">
                     &nbsp;</td>
+                <td class="style3">
+                    &nbsp;</td>
                 <td class="style5">
                     Total Hours Worked:</td>
                 <td>
@@ -108,30 +132,34 @@
                 </td>
             </tr>
             <tr>
-                <td class="style2" colspan="4">
+                <td class="style2" colspan="5">
                     &nbsp;</td>
             </tr>
             <tr>
                 <td class="style2" colspan="2">
                     Total Due: </td>
+                <td class="style2">
+                    &nbsp;</td>
                 <td colspan="2">
                     <asp:Label ID="lblTotalDue" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
-                <td class="style2" colspan="4">
+                <td class="style2" colspan="5">
                     &nbsp;</td>
             </tr>
             <tr>
                 <td class="style2" colspan="2">
                     &nbsp;</td>
+                <td class="style2">
+                    &nbsp;</td>
                 <td colspan="2">
-                    <asp:Button ID="btnPrint" runat="server" onclick="btnPrint_Click" 
-                        Text="print" />
                 </td>
             </tr>
             </table>
-    
+                </div>
+                <asp:Button ID="btnPrint" runat="server" onclick="btnPrint_Click" onclientclick = "javascript:callPrint('bill');" xmlns:asp="#unknown"
+                        Text="print" />
     </div>
     </form>
 </body>
