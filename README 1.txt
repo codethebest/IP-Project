@@ -50,7 +50,8 @@ please sort this stuff below **********
 Must still complete
 validation must be done 
 and 
-exception handling has to done 
+exception handling has to done
+technician table list (To show the job status)
 invoice insert into db error
 Add favicon, names for each page (layout) and membership AWSAT
 SQL stored procedures should be made for
