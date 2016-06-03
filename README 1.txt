@@ -48,6 +48,9 @@ technicianID starts off as 6001
 **********************************************************
 please sort this stuff below **********
 Must still complete
+validation must be done 
+and 
+exception handling has to done 
 invoice insert into db error
 Add favicon, names for each page (layout) and membership AWSAT
 SQL stored procedures should be made for
