@@ -1,3 +1,4 @@
+Added print invoice code
 Added validation Controls
 Added table relarionships
 Added search for jobs by technician ID for technicians
@@ -47,7 +48,6 @@ technicianID starts off as 6001
 **********************************************************
 please sort this stuff below **********
 Must still complete
-print invoice details to pdf or printer *** if we cant figure this out then nvm, will try to google something tho. ****
 invoice insert into db error
 Add favicon, names for each page (layout) and membership AWSAT
 SQL stored procedures should be made for
